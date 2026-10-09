@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#EFECE6">
+  <meta name="description" content="RoastCraft delivers freshly roasted specialty coffee to your door. Discover your perfect 100% Arabica, roasted within 48 hours of shipping. Free shipping across the contiguous US.">
+  <meta property="og:title" content="RoastCraft — Coffee on your terms">
+  <meta property="og:description" content="Freshly roasted every week, delivered to your door. Find your perfect coffee with RoastCraft.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <title>RoastCraft — Coffee on your terms</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23121212'/%3E%3Cellipse cx='20' cy='20' rx='9' ry='13' transform='rotate(35 20 20)' fill='%23D97736'/%3E%3Cpath d='M25 9C13 18 27 21 15 31' fill='none' stroke='%23121212' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;450;500;550;600;650;700;750;800&family=Prata&display=swap" rel="stylesheet">
+  <style>
+    /* One-file build: design tokens and mobile-first, dependency-free UI. */
+    :root { --ink:#121212; --cream:#EFECE6; --paper:#F8F6F1; --accent:#D97736; --accent-dark:#A74714; --muted:#69645D; --line:#D5D0C7; --green:#435844; --font:'Manrope',Arial,sans-serif; --serif:'Prata',Georgia,serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; scroll-padding-top:100px; } body { margin:0; color:var(--ink); background:var(--cream); font-family:var(--font); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; } body.modal-open { overflow:hidden; }
+    a { color:inherit; text-decoration:none; } button,input,select { font:inherit; } button,a,input,select,summary { -webkit-tap-highlight-color:transparent; } button { cursor:pointer; } button:disabled { cursor:wait; } img { max-width:100%; display:block; } h1,h2,h3,p { margin:0; } ul { list-style:none; padding:0; margin:0; } button { color:inherit; } svg { width:24px; height:24px; flex-shrink:0; } .icon { fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; } :focus-visible { outline:3px solid var(--accent); outline-offset:5px; } [hidden] { display:none !important; }
+    .container { width:calc(100% - 40px); max-width:1320px; margin-inline:auto; } .section { padding-block:72px; } .eyebrow { font-size:12px; font-weight:750; letter-spacing:.17em; text-transform:uppercase; display:flex; align-items:center; gap:12px; margin-bottom:22px; } .eyebrow::before { content:''; width:23px; height:1px; background:currentColor; } .section-title { font-size:clamp(32px,4vw,52px); letter-spacing:-.055em; font-weight:650; line-height:1.16; } .serif { font-family:var(--serif); font-weight:400; letter-spacing:-.035em; } .subtitle { color:var(--muted); margin-top:18px; max-width:500px; } .btn { display:inline-flex; justify-content:center; align-items:center; gap:10px; min-height:52px; padding:13px 24px; border:1px solid transparent; border-radius:4px; font-size:14px; font-weight:750; transition:transform .2s,background .2s,box-shadow .2s; } .btn:hover { transform:translateY(-3px); } .btn-primary { background:var(--accent); color:var(--ink); } .btn-primary:hover { background:#E68B4C; box-shadow:0 8px 20px #D9773629; } .btn-dark { background:var(--ink); color:var(--paper); } .btn-dark:hover { background:#333; } .btn-outline { border-color:var(--line); background:transparent; } .btn-outline:hover { background:#E6E1D8; } .text-link { font-size:14px; font-weight:650; border-bottom:1px solid currentColor; padding-bottom:3px; } .text-link:hover { color:var(--accent-dark); }
+    .skip-link { position:fixed; z-index:100; top:-100px; left:20px; background:var(--ink); color:white; padding:12px; } .skip-link:focus { top:20px; } .announcement { background:var(--ink); color:var(--cream); font-size:12px; text-align:center; padding:9px 20px; letter-spacing:.025em; } .announcement span { color:#EDA46E; }
+    .header { position:sticky; top:0; z-index:30; background:#EFECE6F2; backdrop-filter:blur(16px); border-bottom:1px solid #D5D0C770; } .nav { height:78px; display:flex; align-items:center; justify-content:space-between; gap:24px; } .logo { display:inline-flex; align-items:center; gap:9px; font-size:25px; font-weight:800; letter-spacing:-1.2px; } .logo svg { width:29px; height:36px; } .logo .brand-dot { color:var(--accent); } .nav-links { display:none; } .nav-cta { display:none; } .menu-toggle { background:none; border:1px solid var(--line); border-radius:4px; width:44px; height:44px; display:grid; place-items:center; } .mobile-nav { padding:16px 20px 22px; border-top:1px solid var(--line); } .mobile-nav a { display:block; padding:10px 0; font-weight:600; } .mobile-nav .btn { display:flex; margin-top:12px; }
+    .hero { padding-top:38px; padding-bottom:48px; } .hero-grid { display:grid; gap:34px; } .hero-copy { padding-block:10px; } .hero .eyebrow { font-size:11px; margin-bottom:26px; color:var(--muted); } .hero h1 { font-size:clamp(38px,6.5vw,68px); line-height:1.075; font-weight:650; letter-spacing:-.065em; max-width:640px; } .hero h1 .serif { display:block; color:var(--accent-dark); font-size:.85em; line-height:1.32; margin-top:8px; letter-spacing:-.05em; } .hero-description { margin-top:24px; color:var(--muted); font-size:15px; max-width:425px; line-height:1.8; } .hero-actions { margin-top:28px; display:flex; flex-wrap:wrap; gap:22px; align-items:center; } .hero-actions .btn { min-height:56px; padding-inline:25px; } .hero .text-link { font-size:13px; } .social-proof { display:flex; gap:14px; align-items:center; margin-top:35px; } .avatar-stack { display:flex; padding-left:0; } .avatar { width:36px; height:36px; margin-left:-9px; border:2px solid var(--cream); border-radius:50%; display:grid; place-items:center; background:#635246; color:#F9F1E6; font-size:11px; font-weight:700; } .avatar:first-child { margin-left:0; background:#7B876E; } .avatar:nth-child(2) { background:#C19C83; } .avatar:nth-child(3) { background:#605447; } .avatar:nth-child(4) { background:#B1795B; } .stars { color:var(--accent-dark); font-size:14px; letter-spacing:2px; line-height:1.4; } .rating { font-size:11px; color:var(--muted); margin-top:3px; } .rating strong { color:var(--ink); font-weight:750; }
+    .hero-visual { position:relative; min-height:400px; background:#382E22; border-radius:5px; overflow:hidden; } .hero-visual img { width:100%; height:100%; position:absolute; inset:0; object-fit:cover; } .hero-visual::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,#12121225 0%,transparent 38%,#1212128A 100%); } .photo-label { position:absolute; z-index:1; top:24px; left:24px; font-size:11px; color:var(--paper); letter-spacing:.13em; line-height:1.8; } .photo-label strong { font-size:16px; letter-spacing:.2em; } .round-seal { width:78px; height:78px; border:1px solid #FFFFFF90; border-radius:50%; position:absolute; z-index:1; top:22px; right:22px; color:white; display:flex; align-items:center; justify-content:center; flex-direction:column; font-size:10px; line-height:1.5; letter-spacing:.05em; transform:rotate(12deg); } .round-seal strong { font-family:var(--serif); font-size:26px; font-weight:400; letter-spacing:-1px; } .photo-bottom { position:absolute; bottom:24px; left:24px; right:24px; z-index:1; color:var(--paper); display:flex; align-items:flex-end; justify-content:space-between; gap:18px; } .photo-bottom p { font-family:var(--serif); font-size:26px; line-height:1.35; letter-spacing:-.06em; } .photo-bottom .caption { font-family:var(--font); font-size:10px; letter-spacing:.12em; line-height:1.7; text-align:right; text-transform:uppercase; } .hero-foot { display:flex; justify-content:space-between; border-top:1px solid var(--line); padding-top:18px; margin-top:28px; gap:12px; color:var(--muted); font-size:11px; letter-spacing:.03em; } .hero-foot span { display:flex; align-items:center; gap:7px; } .hero-foot svg { width:15px; height:15px; }
+    .benefits { padding:25px 0 36px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); } .benefits-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px 20px; } .benefit { display:flex; gap:12px; align-items:flex-start; } .benefit>svg { color:var(--accent-dark); width:25px; height:25px; margin-top:2px; } .benefit h3 { font-size:14px; font-weight:750; } .benefit p { font-size:12px; color:var(--muted); margin-top:4px; }
+    @media (min-width:760px) { .container { width:calc(100% - 80px); } .hero-grid { grid-template-columns:1fr 1fr; gap:45px; } .hero-visual { min-height:570px; } .hero { padding-top:48px; } .hero-copy { display:flex; flex-direction:column; justify-content:center; } .hero h1 { font-size:clamp(43px,4.8vw,68px); } .hero-description { font-size:16px; } .section { padding-block:100px; } .benefits-grid { grid-template-columns:repeat(4,1fr); gap:24px; } .benefit { padding-block:12px; } .benefits { padding:20px 0; } }
+    @media (min-width:1024px) { .nav-links { display:flex; gap:29px; font-size:13px; font-weight:600; color:#514E49; } .nav-links a { transition:color .2s; } .nav-links a:hover { color:var(--accent-dark); } .nav-cta { display:inline-flex; min-height:42px; padding:9px 20px; font-size:12px; } .menu-toggle { display:none; } .hero-grid { gap:60px; } .hero-visual { min-height:606px; } .hero { padding-bottom:40px; } .hero-foot { margin-top:37px; } .social-proof { margin-top:37px; } .benefit { gap:15px; } .benefit h3 { font-size:15px; } .benefit p { font-size:13px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none !important; animation:none !important; } }
+
+    /* Shared section rhythm; content stays in a readable maximum-width grid. */
+    .section-head { display:flex; flex-direction:column; gap:24px; margin-bottom:42px; } .section-head .subtitle { margin-top:0; } .how { background:var(--paper); } .steps-grid { display:grid; gap:24px; } .step { padding-top:26px; border-top:1px solid var(--line); } .step-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:25px; } .step-number { font-family:var(--serif); color:#B5A997; font-size:34px; letter-spacing:-.08em; } .step-top svg { width:30px; height:30px; } .step h3 { font-size:20px; letter-spacing:-.035em; font-weight:750; } .step p { margin-top:12px; color:var(--muted); font-size:14px; max-width:330px; }
+    .beans-grid { display:grid; gap:20px; } .bean-card { border:1px solid var(--line); border-radius:5px; overflow:hidden; background:var(--paper); transition:transform .25s,box-shadow .25s; } .bean-card:hover { transform:translateY(-5px); box-shadow:0 12px 32px #1212120B; } .bean-top { padding:28px; min-height:193px; display:flex; flex-direction:column; justify-content:space-between; position:relative; } .bean-card:nth-child(1) .bean-top { background:#DEDCCB; } .bean-card:nth-child(2) .bean-top { background:#E4CDC0; } .bean-card:nth-child(3) .bean-top { background:#D6DADE; } .bean-origin { text-transform:uppercase; font-size:11px; letter-spacing:.17em; font-weight:650; } .bean-top h3 { font-size:29px; font-weight:600; line-height:1.15; letter-spacing:-.06em; margin-top:20px; } .bean-top h3 span { display:block; font-size:13px; letter-spacing:0; color:#58564E; margin-top:12px; font-weight:500; } .bean-score { position:absolute; right:24px; top:24px; border:1px solid #12121230; border-radius:50%; width:54px; height:54px; display:flex; flex-direction:column; justify-content:center; align-items:center; line-height:1.15; } .bean-score strong { font-size:18px; } .bean-score span { font-size:9px; letter-spacing:.08em; } .bean-body { padding:25px 28px; } .flavor-tags { display:flex; flex-wrap:wrap; gap:7px; } .flavor-tags span { font-size:11px; padding:4px 8px; border:1px solid var(--line); border-radius:20px; } .bean-body>p { margin-top:17px; font-size:13px; color:var(--muted); min-height:43px; } .taste-meter { display:flex; justify-content:space-between; font-size:11px; margin-top:15px; } .meter-dots { letter-spacing:3px; color:var(--accent-dark); } .meter-dots i { color:#D3CABE; font-style:normal; } .bean-bottom { display:flex; justify-content:space-between; align-items:center; gap:15px; border-top:1px solid var(--line); margin-top:20px; padding-top:17px; } .bean-bottom strong { font-size:18px; letter-spacing:-.04em; } .bean-bottom small { font-size:11px; font-weight:400; color:var(--muted); } .bean-bottom button { border:0; background:none; font-size:12px; font-weight:750; padding:8px 0; border-bottom:1px solid currentColor; }
+    .quiz-section { background:var(--ink); color:var(--cream); position:relative; } .quiz-grid { display:grid; gap:35px; } .quiz-intro .eyebrow { color:#DB9C70; } .quiz-intro h2 { max-width:440px; } .quiz-intro .serif { color:#E5AE87; display:block; margin-top:6px; } .quiz-intro .subtitle { color:#AAA49D; max-width:320px; font-size:14px; } .quiz-note { font-size:12px; display:flex; align-items:center; gap:8px; color:#B9B3AB; margin-top:25px; } .quiz-note svg { width:16px; height:16px; } .quiz-panel { background:#23231F; border:1px solid #FFFFFF17; padding:25px; border-radius:5px; min-height:345px; } .quiz-progress { display:flex; align-items:center; justify-content:space-between; gap:15px; font-size:11px; color:#B9B3AB; margin-bottom:27px; } .progress-track { display:flex; gap:7px; } .progress-track span { width:32px; height:3px; background:#4E4C45; } .progress-track span.active { background:var(--accent); } fieldset { padding:0; margin:0; border:0; min-width:0; } .quiz-panel legend { font-size:22px; font-weight:650; letter-spacing:-.04em; margin-bottom:20px; } .quiz-options { display:grid; grid-template-columns:1fr 1fr; gap:10px; } .quiz-option { position:relative; display:flex; flex-direction:column; gap:5px; padding:18px 13px; min-height:88px; border:1px solid #615F56; border-radius:4px; cursor:pointer; transition:background .2s,border-color .2s; } .quiz-option:has(input:checked) { border-color:var(--accent); background:#D9773614; } .quiz-option:has(input:focus-visible) { outline:2px solid var(--accent); outline-offset:3px; } .quiz-option input { position:absolute; opacity:0; width:1px; height:1px; } .quiz-option>span { font-size:13px; font-weight:650; } .quiz-option small { font-size:10px; color:#B9B3AB; } .quiz-option .choice-circle { position:absolute; right:12px; top:13px; width:12px; height:12px; border:1px solid #AAA49D; border-radius:50%; } .quiz-option input:checked~.choice-circle { border:3px solid var(--accent); background:var(--ink); } .quiz-nav { display:flex; align-items:center; justify-content:space-between; gap:15px; margin-top:23px; } .quiz-nav .btn { min-height:45px; font-size:12px; padding:10px 21px; } .quiz-nav .btn:disabled { opacity:.35; transform:none; box-shadow:none; } .quiz-back { border:0; padding:6px 0; color:#C4BEB5; background:none; font-size:12px; } .quiz-back[hidden]~.btn { margin-left:auto; } .quiz-result .result-overline { color:#DB9C70; font-size:11px; letter-spacing:.12em; text-transform:uppercase; } .quiz-result h3 { font-size:31px; font-weight:600; letter-spacing:-.05em; margin-top:12px; } .quiz-result .flavor-tags { margin-top:14px; } .quiz-result .flavor-tags span { border-color:#615F56; color:#DDD7CE; } .quiz-result>p { font-size:13px; color:#B9B3AB; margin-top:18px; } .result-price { display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding-top:18px; border-top:1px solid #FFFFFF24; } .result-price strong { font-size:24px; letter-spacing:-.05em; } .result-price span { color:#B9B3AB; font-size:11px; } .result-price .btn { font-size:12px; padding:10px 17px; min-height:45px; }
+    .roast { background:var(--paper); } .roast-grid { display:grid; gap:36px; align-items:center; } .roast-photo { position:relative; border-radius:4px; overflow:hidden; min-height:360px; background:#30251D; } .roast-photo>img { position:absolute; width:100%; height:100%; object-fit:cover; object-position:50% 65%; } .roast-photo figcaption { position:absolute; left:20px; bottom:20px; color:white; background:#121212BA; padding:8px 12px; font-size:11px; letter-spacing:.03em; } figure { margin:0; } .roast-copy h2 { max-width:470px; } .roast-copy .subtitle { font-size:14px; max-width:435px; } .roast-details { border-top:1px solid var(--line); margin-top:30px; padding-top:23px; display:grid; grid-template-columns:repeat(3,1fr); gap:15px; } .roast-details strong { display:block; font-size:26px; font-weight:650; letter-spacing:-.06em; } .roast-details span { font-size:11px; color:var(--muted); }
+    .pricing-heading { text-align:center; } .pricing-heading .eyebrow { justify-content:center; } .pricing-heading .subtitle { margin-inline:auto; font-size:14px; } .billing-toggle { background:#E1DCD3; border:1px solid var(--line); border-radius:5px; padding:4px; display:flex; width:max-content; max-width:100%; margin:28px auto 36px; } .billing-toggle button { border:0; background:transparent; border-radius:3px; padding:11px 13px; font-size:12px; font-weight:650; transition:background .2s; } .billing-toggle button[aria-pressed=true] { background:var(--paper); box-shadow:0 1px 5px #12121212; } .discount { margin-left:6px; font-size:10px; color:var(--accent-dark); } .pricing-grid { display:grid; gap:24px; } .plan { padding:31px 25px 26px; border:1px solid var(--line); border-radius:5px; background:var(--paper); position:relative; display:flex; flex-direction:column; transition:transform .25s; } .plan:hover { transform:translateY(-4px); } .plan.featured { border:1.5px solid var(--accent); } .popular { position:absolute; top:-13px; left:25px; background:var(--accent); color:var(--ink); padding:3px 12px; border-radius:3px; font-size:10px; font-weight:750; text-transform:uppercase; letter-spacing:.06em; } .plan-eyebrow { display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:11px; margin-bottom:14px; } .plan h3 { font-size:27px; letter-spacing:-.055em; font-weight:650; } .plan-desc { margin-top:8px; color:var(--muted); font-size:12px; } .plan-price { margin:27px 0 4px; font-size:39px; line-height:1.15; letter-spacing:-.075em; font-weight:650; } .plan-price small { font-size:12px; letter-spacing:0; font-weight:500; color:var(--muted); } .billing-detail { font-size:11px; color:var(--muted); min-height:20px; } .plan ul { border-top:1px solid var(--line); margin-top:25px; padding-top:21px; display:grid; gap:11px; margin-bottom:27px; } .plan li { font-size:12px; display:flex; align-items:flex-start; gap:10px; } .plan li svg { width:17px; height:17px; color:var(--green); margin-top:1px; } .plan .btn { margin-top:auto; width:100%; } .pricing-note { margin-top:26px; text-align:center; color:var(--muted); font-size:11px; display:flex; gap:8px; align-items:center; justify-content:center; } .pricing-note svg { width:16px; height:16px; }
+    .reviews { background:#E6E1D8; } .review-rating { display:flex; flex-direction:column; align-items:flex-start; gap:6px; } .review-rating strong { font-size:15px; } .review-rating small { color:var(--muted); font-size:11px; } .reviews-grid { display:grid; gap:18px; } .review { padding:28px; background:var(--paper); border-radius:4px; border:1px solid #D9D3C8; display:flex; flex-direction:column; } .review blockquote { margin:18px 0 28px; font-size:14px; line-height:1.9; color:#48443E; } .review-author { margin-top:auto; padding-top:18px; border-top:1px solid var(--line); display:flex; gap:12px; align-items:center; } .review-author .avatar { width:40px; height:40px; margin:0; border:0; font-size:13px; } .review-author strong { font-size:12px; display:block; } .review-author span { color:var(--muted); font-size:10px; display:block; }
+    .faq-grid { display:grid; gap:36px; } .faq-intro .subtitle { font-size:14px; } .faq-intro .text-link { display:inline-block; margin-top:25px; font-size:13px; } .faq-list details { border-top:1px solid var(--line); } .faq-list details:last-child { border-bottom:1px solid var(--line); } .faq-list summary { cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:20px; list-style:none; padding:21px 0; font-size:14px; font-weight:650; } .faq-list summary::-webkit-details-marker { display:none; } .faq-list summary svg { width:18px; height:18px; transition:transform .2s; } .faq-list details[open] summary svg { transform:rotate(45deg); } .faq-list details p { color:var(--muted); font-size:13px; line-height:1.8; padding-bottom:22px; padding-right:28px; }
+    .last-call { border-top:1px solid var(--line); padding:55px 0; } .last-call-inner { display:flex; flex-direction:column; gap:25px; align-items:flex-start; } .last-call h2 { font-size:clamp(27px,3vw,42px); font-weight:600; letter-spacing:-.055em; line-height:1.3; } .last-call p { font-size:13px; color:var(--muted); margin-top:12px; } .footer { background:var(--ink); color:var(--cream); padding:50px 0 22px; } .footer-main { display:grid; gap:32px; } .footer .logo { font-size:29px; } .footer .logo svg path { stroke:var(--ink); } .footer-brand>p { color:#A9A49B; font-size:12px; margin-top:17px; max-width:240px; } .footer h3 { font-size:11px; color:#A9A49B; text-transform:uppercase; font-weight:500; letter-spacing:.12em; margin-bottom:16px; } .footer-links { display:grid; gap:10px; font-size:12px; } .footer-links a:hover { color:#E6A472; } .footer-bottom { display:flex; flex-direction:column; gap:12px; margin-top:38px; padding-top:20px; border-top:1px solid #FFFFFF21; font-size:10px; color:#A9A49B; } .footer-legal { display:flex; flex-wrap:wrap; gap:20px; } .footer-legal button { border:0; background:none; color:inherit; padding:0; font-size:10px; }
+    /* Native dialog gives focus containment, Escape support and inert background. */
+    dialog { padding:0; border:1px solid var(--line); border-radius:8px; width:calc(100% - 32px); max-width:480px; background:var(--paper); color:var(--ink); max-height:calc(100dvh - 32px); box-shadow:0 25px 90px #0005; } dialog::backdrop { background:#121212A6; backdrop-filter:blur(5px); } dialog[open] { animation:dialog-in .25s ease-out; } .dialog-content { padding:30px 25px; } .close-dialog { position:absolute; right:14px; top:14px; background:none; border:0; display:grid; place-items:center; width:32px; height:32px; border-radius:3px; } .close-dialog svg { width:18px; height:18px; } .close-dialog:hover { background:#E1DCD3; } .dialog-eyebrow { color:var(--accent-dark); text-transform:uppercase; font-size:10px; letter-spacing:.15em; margin-bottom:12px; } .dialog-content h2 { font-size:29px; line-height:1.25; letter-spacing:-.05em; font-weight:650; } .dialog-description { font-size:12px; color:var(--muted); margin-top:12px; margin-bottom:24px; } .form-field { display:grid; gap:7px; margin-top:17px; } .form-field label { font-size:12px; font-weight:650; } .form-field input,.form-field select { width:100%; background:var(--paper); border:1px solid #B9B1A4; border-radius:4px; padding:11px 12px; min-height:46px; font-size:14px; } .form-field input[aria-invalid=true] { border-color:#B03329; } .field-error { color:#A72C24; font-size:11px; } .form-hint { font-size:10px; color:var(--muted); } .order-summary { margin-top:19px; padding:14px; background:var(--cream); font-size:11px; color:var(--muted); border-radius:3px; } .order-summary strong { display:block; font-size:15px; color:var(--ink); margin-top:3px; } .form-submit { width:100%; margin-top:21px; } .form-consent { font-size:10px; line-height:1.7; color:var(--muted); margin-top:13px; text-align:center; } .form-consent button { font:inherit; color:inherit; text-decoration:underline; background:none; border:0; padding:0; } .form-demo { font-size:10px; color:var(--muted); margin-top:12px; text-align:center; } .success { text-align:center; padding:30px 0 12px; } .success-icon { margin:0 auto 24px; width:64px; height:64px; border-radius:50%; background:#D977361A; color:var(--accent-dark); display:grid; place-items:center; animation:success-pop .45s both; } .success-icon svg { width:30px; height:30px; stroke-dasharray:40; stroke-dashoffset:40; animation:success-stroke .5s .2s forwards; } .success p { font-size:13px; color:var(--muted); margin-top:15px; } .success .btn { margin-top:24px; } .legal-copy { font-size:13px; line-height:1.8; color:var(--muted); margin-top:24px; } .legal-copy p+p { margin-top:14px; } .legal-copy h3 { font-size:15px; color:var(--ink); margin-bottom:10px; } .reveal { transition:opacity .6s,transform .6s; } .js-reveal .reveal:not(.revealed) { opacity:0; transform:translateY(16px); } @keyframes dialog-in { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } } @keyframes success-pop { from { opacity:0; transform:scale(.7); } to { opacity:1; transform:scale(1); } } @keyframes success-stroke { to { stroke-dashoffset:0; } }
+    @media (max-width:759px) { .desktop-note { display:none !important; } .hero-foot { font-size:10px; } .hero-visual { min-height:410px; } .photo-bottom p { font-size:25px; } .section { padding-block:60px; } .plan { max-width:540px; width:100%; margin-inline:auto; } }
+    @media (min-width:760px) { .section-head { flex-direction:row; align-items:flex-end; justify-content:space-between; gap:60px; margin-bottom:46px; } .section-head .subtitle { max-width:335px; font-size:14px; } .steps-grid { grid-template-columns:repeat(3,1fr); gap:38px; } .beans-grid { grid-template-columns:repeat(3,1fr); } .bean-top { padding:22px; } .bean-top h3 { font-size:27px; } .bean-body { padding:20px; } .quiz-grid { grid-template-columns:.9fr 1.1fr; gap:55px; align-items:center; } .quiz-panel { padding:33px; } .roast-grid { grid-template-columns:1fr 1fr; gap:65px; } .roast-photo { min-height:480px; } .pricing-grid { grid-template-columns:repeat(3,1fr); gap:20px; } .plan { padding:32px 24px 26px; } .reviews-grid { grid-template-columns:repeat(3,1fr); } .review { padding:24px; } .faq-grid { grid-template-columns:.85fr 1.15fr; gap:80px; } .last-call-inner { flex-direction:row; align-items:center; justify-content:space-between; gap:45px; } .footer-main { grid-template-columns:2fr 1fr 1fr 1fr; gap:35px; } .footer-bottom { flex-direction:row; justify-content:space-between; gap:35px; } .dialog-content { padding:38px; } }
+    @media (min-width:1024px) { .bean-top { min-height:220px; padding:28px; } .bean-top h3 { font-size:33px; } .bean-body { padding:26px 28px; } .quiz-grid { grid-template-columns:1fr 1.13fr; gap:110px; } .quiz-panel { padding:37px; } .quiz-option { padding:20px; } .plan { padding:37px 34px 30px; } .review { padding:30px; } .last-call { padding-block:65px; } .footer { padding-top:65px; } }
+    @media (min-width:1800px) { .container { max-width:1480px; } .hero-visual { min-height:660px; } .hero h1 { font-size:76px; } }
+    @media (prefers-reduced-motion:reduce) { .js-reveal .reveal:not(.revealed) { opacity:1; transform:none; } .success-icon svg { stroke-dashoffset:0; } }
+
+    .bean-bottom { flex-wrap:wrap; }
+    .bean-bottom strong { margin-right:3px; }
+    .bean-bottom button { font-size:13px; }
+    .plan-price { font-variant-numeric:tabular-nums; }
+    .quiz-option small { max-width:calc(100% - 8px); }
+    .form-field label { font-size:14px; }
+    .form-field input,.form-field select { font-size:16px; }
+    @media (min-width:760px) and (max-width:1023px) { .plan-price { font-size:31px; } .plan { padding-inline:20px; } }
+  </style>
+</head>
+<body>
+  <!-- Small inline Lucide-compatible SVG sprite avoids CDN JavaScript. -->
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><defs>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2M14 2v2M6 2v2M3 8h14v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4ZM17 8h1a3 3 0 1 1 0 6h-1M2 22h19"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 3h14v14H1zM15 8h4l3 4v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 8v8M15 8v8"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="m8.2 13-1.2 9 5-3 5 3-1.2-9M10 8l1.5 1.5L14 6"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="m21 8-9 5-9-5M12 13v9M3 7l9-5 9 5v10l-9 5-9-5zM7.5 4.5l9 5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4c-5 0-12-2-15 4s1 12 7 11 8-8 8-15ZM3 21 15 9"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2c1 7-6 6-6 13a6 6 0 0 0 12 0c0-2-1-5-3-7 1 5-2 5-3 7 0-4 3-7 0-13Z"/></symbol>
+    <symbol id="i-grind" viewBox="0 0 24 24"><path d="M7 2h10l-2 6H9ZM12 8v4M5 12h14v10H5ZM12 17h4M17 2h4M7 2H3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m8 12 3 3 5-6"/></symbol>
+  </defs></svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="announcement">A little ritual. A better day. <span>Free shipping. Every box.</span></div>
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo" aria-label="RoastCraft home"><svg viewBox="0 0 32 40" aria-hidden="true"><ellipse cx="16" cy="20" rx="10" ry="15" transform="rotate(30 16 20)" fill="currentColor"/><path d="M23 7C9 17 25 23 9 33" fill="none" stroke="#EFECE6" stroke-width="2"/></svg>RoastCraft<span class="brand-dot">.</span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="#how">How it works</a><a href="#beans">Our coffees</a><a href="#pricing">Subscriptions</a><a href="#faq">FAQ</a></nav>
+      <a href="#quiz" class="btn btn-dark nav-cta">Find your coffee</a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+    <nav id="mobile-menu" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#how">How it works</a><a href="#beans">Our coffees</a><a href="#pricing">Subscriptions</a><a href="#faq">FAQ</a><a href="#quiz" class="btn btn-dark">Find your coffee</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Specialty coffee · made for your mornings</p>
+          <h1 id="hero-title">Freshly roasted<br>every week — <span class="serif">right to your door.</span></h1>
+          <p class="hero-description">Your beans. Your taste. Your pace.<br>100% specialty-grade Arabica, roasted within 48 hours of shipping. We take care of the rest.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#quiz">Build your box</a><a href="#roasting" class="text-link">Meet the roast</a></div>
+          <div class="social-proof"><div class="avatar-stack" aria-hidden="true"><span class="avatar">AR</span><span class="avatar">MS</span><span class="avatar">DC</span><span class="avatar">JL</span></div><div><div class="stars" aria-label="5 stars">★★★★★</div><p class="rating"><strong>4.9/5</strong> from 1,200+ reviews</p></div></div>
+        </div>
+        <div class="hero-visual" id="hero-image"><img src="https://images.unsplash.com/photo-1732215395488-b4f444bb0c5e?auto=format&amp;fit=crop&amp;w=1800&amp;q=85" width="1800" height="1200" alt="A ceramic cup of fresh coffee in warm morning light" fetchpriority="high"><div class="photo-label"><strong>ROASTCRAFT</strong><br>FRESHLY ROASTED. SLOWLY ENJOYED.</div><div class="round-seal"><span>ROASTED</span><strong>48 h</strong><span>BEFORE SHIPPING</span></div><div class="photo-bottom"><p>More than coffee.<br>Your kind of morning.</p><span class="caption">From the bean<br>to the moment</span></div></div>
+      </div>
+      <div class="hero-foot"><span><svg class="icon"><use href="#i-leaf"/></svg>Good taste. Real origins.</span><span>Roasted in small batches</span><span class="desktop-note">01 — A fresh take on coffee</span></div>
+    </section>
+    <section class="benefits" aria-label="The RoastCraft difference"><div class="container benefits-grid">
+      <article class="benefit"><svg class="icon" aria-hidden="true"><use href="#i-badge"/></svg><div><h3>84+ quality score</h3><p>Specialty beans we believe in</p></div></article>
+      <article class="benefit"><svg class="icon" aria-hidden="true"><use href="#i-grind"/></svg><div><h3>Your perfect grind</h3><p>For the way you brew</p></div></article>
+      <article class="benefit"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg><div><h3>Free US shipping</h3><p>Every plan. Every month.</p></div></article>
+      <article class="benefit"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg><div><h3>Pause anytime</h3><p>Coffee that fits your life</p></div></article>
+    </div></section>
+
+    <section id="how" class="section how" aria-labelledby="how-title"><div class="container">
+      <div class="section-head reveal"><div><p class="eyebrow">Good coffee. Zero guesswork.</p><h2 class="section-title" id="how-title">Three steps to <span class="serif">your daily ritual.</span></h2></div><p class="subtitle">Less searching. More sipping.<br>Make great coffee a habit.</p></div>
+      <div class="steps-grid">
+        <article class="step reveal"><div class="step-top"><span class="step-number">01</span><svg class="icon" aria-hidden="true"><use href="#i-coffee"/></svg></div><h3>Tell us what you love</h3><p>Two quick questions about how you brew and the flavors you enjoy. We’ll find your match.</p></article>
+        <article class="step reveal"><div class="step-top"><span class="step-number">02</span><svg class="icon" aria-hidden="true"><use href="#i-flame"/></svg></div><h3>We roast it just for you</h3><p>Small batches. A roast profile for every origin. Ground to order if you like, then packed with care.</p></article>
+        <article class="step reveal"><div class="step-top"><span class="step-number">03</span><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg></div><h3>Unbox a better morning</h3><p>Fresh coffee and a brew guide, right at your door. Switch your coffee, change your plan, or take a break.</p></article>
+      </div>
+    </div></section>
+    <section id="beans" class="section" aria-labelledby="beans-title"><div class="container">
+      <div class="section-head reveal"><div><p class="eyebrow">Meet your next favorite</p><h2 class="section-title" id="beans-title">Every bean has <span class="serif">a story.</span></h2></div><p class="subtitle">Traceable origins. Remarkable flavors.<br>Three personalities. Find yours.</p></div>
+      <div class="beans-grid">
+        <article class="bean-card reveal"><div class="bean-top"><p class="bean-origin">Brazil · Cerrado</p><div class="bean-score"><strong>84</strong><span>SCA</span></div><h3>Brazil<span>Your comforting everyday classic</span></h3></div><div class="bean-body"><div class="flavor-tags"><span>Chocolate</span><span>Hazelnut</span><span>Caramel</span></div><p>Smooth, full-bodied, and sweet. Made for espresso and your favorite latte.</p><div class="taste-meter"><span>Acidity</span><span class="meter-dots" aria-label="Acidity 1 of 5">●<i>●●●●</i></span></div><div class="bean-bottom"><div><strong>$16</strong> <small>/ 8.8 oz (250 g)</small></div><button type="button" data-bean="brazil">Choose this coffee</button></div></div></article>
+        <article class="bean-card reveal"><div class="bean-top"><p class="bean-origin">Ethiopia · Sidamo</p><div class="bean-score"><strong>87</strong><span>SCA</span></div><h3>Ethiopia<span>Bright, delicate, endlessly drinkable</span></h3></div><div class="bean-body"><div class="flavor-tags"><span>Bergamot</span><span>Jasmine</span><span>Peach</span></div><p>Delicate florals and a juicy finish. A beautiful match for pour-over.</p><div class="taste-meter"><span>Acidity</span><span class="meter-dots" aria-label="Acidity 3 of 5">●●●<i>●●</i></span></div><div class="bean-bottom"><div><strong>$19</strong> <small>/ 8.8 oz (250 g)</small></div><button type="button" data-bean="ethiopia">Choose this coffee</button></div></div></article>
+        <article class="bean-card reveal"><div class="bean-top"><p class="bean-origin">Kenya · Kirinyaga</p><div class="bean-score"><strong>88</strong><span>SCA</span></div><h3>Kenya<span>For the beautifully bold</span></h3></div><div class="bean-body"><div class="flavor-tags"><span>Blackcurrant</span><span>Cherry</span><span>Grapefruit</span></div><p>Vibrant berries and wine-like sweetness. A little discovery in every sip.</p><div class="taste-meter"><span>Acidity</span><span class="meter-dots" aria-label="Acidity 5 of 5">●●●●●</span></div><div class="bean-bottom"><div><strong>$22</strong> <small>/ 8.8 oz (250 g)</small></div><button type="button" data-bean="kenya">Choose this coffee</button></div></div></article>
+      </div>
+    </div></section>
+    <section id="quiz" class="section quiz-section" aria-labelledby="quiz-title"><div class="container quiz-grid">
+      <div class="quiz-intro reveal"><p class="eyebrow">Not sure where to start?</p><h2 class="section-title" id="quiz-title">Your taste.<br><span class="serif">Let’s find it.</span></h2><p class="subtitle">Answer two quick questions. Discover a coffee you’ll look forward to every morning.</p><p class="quiz-note"><svg class="icon" aria-hidden="true"><use href="#i-coffee"/></svg>30 seconds to your perfect match</p></div>
+      <div class="quiz-panel reveal"><div class="quiz-progress"><span id="quiz-step-label" aria-live="polite">01 / 03 · Your brewing method</span><div class="progress-track" aria-hidden="true"><span class="active"></span><span></span><span></span></div></div>
+        <fieldset id="quiz-method"><legend>How do you brew?</legend><div class="quiz-options">
+          <label class="quiz-option"><input type="radio" name="method" value="espresso"><span>Espresso</span><small>Espresso machine or moka pot</small><i class="choice-circle" aria-hidden="true"></i></label>
+          <label class="quiz-option"><input type="radio" name="method" value="filter"><span>Pour-over</span><small>V60, Chemex, or drip brewer</small><i class="choice-circle" aria-hidden="true"></i></label>
+          <label class="quiz-option"><input type="radio" name="method" value="turka"><span>Turkish coffee</span><small>Rich, bold, and unhurried</small><i class="choice-circle" aria-hidden="true"></i></label>
+          <label class="quiz-option"><input type="radio" name="method" value="press"><span>French press</span><small>Simple, smooth, and aromatic</small><i class="choice-circle" aria-hidden="true"></i></label>
+        </div></fieldset>
+        <fieldset id="quiz-flavor" hidden><legend>What flavors do you love?</legend><div class="quiz-options">
+          <label class="quiz-option"><input type="radio" name="flavor" value="chocolate"><span>Chocolate &amp; nuts</span><small>Smooth and comforting</small><i class="choice-circle" aria-hidden="true"></i></label>
+          <label class="quiz-option"><input type="radio" name="flavor" value="floral"><span>Floral & citrus</span><small>Light and refreshing</small><i class="choice-circle" aria-hidden="true"></i></label>
+          <label class="quiz-option"><input type="radio" name="flavor" value="berry"><span>Berries & fruit</span><small>Juicy and vibrant</small><i class="choice-circle" aria-hidden="true"></i></label>
+          <label class="quiz-option"><input type="radio" name="flavor" value="surprise"><span>Surprise me</span><small>Let our roasters choose</small><i class="choice-circle" aria-hidden="true"></i></label>
+        </div></fieldset>
+        <div id="quiz-result" class="quiz-result" tabindex="-1" hidden><span class="result-overline">We think you’ll love this</span><h3 id="result-name"></h3><div id="result-tags" class="flavor-tags"></div><p id="result-description"></p><div class="result-price"><div><strong id="result-cost"></strong><span> / 8.8 oz (250 g)</span></div><button id="result-order" class="btn btn-primary" type="button">Make it mine</button></div></div>
+        <div class="quiz-nav"><button id="quiz-back" class="quiz-back" type="button" hidden>Back</button><button id="quiz-next" class="btn btn-primary" type="button" disabled>Continue</button><button id="quiz-restart" class="quiz-back" type="button" hidden>Find another match</button></div>
+      </div>
+    </div></section>
+    <section id="roasting" class="section roast" aria-labelledby="roast-title"><div class="container roast-grid">
+      <figure class="roast-photo reveal"><img src="https://images.unsplash.com/photo-1640770668482-8e3827119472?auto=format&amp;fit=crop&amp;w=1600&amp;q=85" alt="Fresh coffee beans cooling in a roasting drum" width="1067" height="1600" loading="lazy"><figcaption>Small batches. Exceptional attention.</figcaption></figure>
+      <div class="roast-copy reveal"><p class="eyebrow">Craft you can taste</p><h2 class="section-title" id="roast-title">Freshness matters.<br><span class="serif">You can taste it.</span></h2><p class="subtitle">We don’t roast coffee to sit on a shelf. We taste every batch and fine-tune each roast to reveal the bean’s natural character, with balanced sweetness in every cup.</p><p class="subtitle">From the roaster to shipping in under 48 hours. A one-way valve keeps your beans fresh as they rest on the journey to your morning ritual.</p><div class="roast-details"><div><strong>84+</strong><span>SCA quality score</span></div><div><strong>48 h</strong><span>from roast to shipping</span></div><div><strong>100%</strong><span>traceable Arabica</span></div></div></div>
+    </div></section>
+    <section id="pricing" class="section" aria-labelledby="pricing-title"><div class="container">
+      <div class="pricing-heading reveal"><p class="eyebrow">On your terms</p><h2 class="section-title" id="pricing-title">Great coffee. <span class="serif">Your kind of routine.</span></h2><p class="subtitle">Pick your pace. We’ll bring the freshness.<br>All three origins are included in every plan.</p></div>
+      <div class="billing-toggle" role="group" aria-label="Billing frequency"><button type="button" data-billing="monthly" aria-pressed="true">Monthly</button><button type="button" data-billing="annual" aria-pressed="false">Annual <span class="discount">−15%</span></button></div>
+      <div class="pricing-grid" aria-live="polite">
+        <article class="plan reveal"><div class="plan-eyebrow"><span>A LITTLE EVERYDAY LUXURY</span><svg class="icon" aria-hidden="true"><use href="#i-coffee"/></svg></div><h3>Starter</h3><p class="plan-desc">1 × 8.8 oz bag / month · about 15 cups</p><p class="plan-price">$<span data-price="start">16</span> <small>/ mo</small></p><p class="billing-detail" data-total="start">Billed monthly</p><ul><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>One origin of your choice</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Whole bean or ground your way</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Free US shipping</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>A brew guide in every box</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pause or switch your coffee anytime</li></ul><button type="button" class="btn btn-outline" data-plan="start">Choose Starter</button></article>
+        <article class="plan featured reveal"><span class="popular">Most popular</span><div class="plan-eyebrow"><span>YOUR DAILY SWEET SPOT</span><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg></div><h3>Balanced</h3><p class="plan-desc">2 × 8.8 oz bags / month · about 30 cups</p><p class="plan-price">$<span data-price="balance">29</span> <small>/ mo</small></p><p class="billing-detail" data-total="balance">Billed monthly</p><ul><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Two origins or twice your favorite</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Whole bean or ground your way</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Free US shipping</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Barista-tested brew recipes</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pause or switch your coffee anytime</li></ul><button type="button" class="btn btn-primary" data-plan="balance">Choose Balanced</button></article>
+        <article class="plan reveal"><div class="plan-eyebrow"><span>FOR THE COFFEE-OBSESSED</span><svg class="icon" aria-hidden="true"><use href="#i-flame"/></svg></div><h3>Coffee Lover</h3><p class="plan-desc">4 × 8.8 oz bags / month · about 60 cups</p><p class="plan-price">$<span data-price="lover">54</span> <small>/ mo</small></p><p class="billing-detail" data-total="lover">Billed monthly</p><ul><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Up to three origins in every box</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Whole bean or ground your way</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Free US shipping</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Personalized brewing tips</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pause or switch your coffee anytime</li></ul><button type="button" class="btn btn-outline" data-plan="lover">Choose Coffee Lover</button></article>
+      </div><p class="pricing-note"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>No hidden fees. Free shipping in the contiguous US. Annual plans include 12 monthly boxes.</p>
+    </div></section>
+    <section id="reviews" class="section reviews" aria-labelledby="reviews-title"><div class="container">
+      <div class="section-head reveal"><div><p class="eyebrow">Good company. Great coffee.</p><h2 class="section-title" id="reviews-title">Part of <span class="serif">their morning.</span></h2></div><div class="review-rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.9 out of 5 · 1,200+ reviews</strong><small>For flavor, freshness, and a little extra care</small></div></div>
+      <div class="reviews-grid">
+        <article class="review reveal"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“As a barista, I’m picky about my beans. RoastCraft’s Ethiopian coffee is beautifully clean, with jasmine notes and a sweet finish. The roast date on the bag? Just two days before shipping. That’s how it should be.”</blockquote><div class="review-author"><div class="avatar" aria-hidden="true">AR</div><div><strong>Alex R.</strong><span>Barista, Austin · Balanced plan</span></div></div></article>
+        <article class="review reveal"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“I work from home, and great coffee is my little luxury between meetings. No more realizing I’m out of beans on a Monday morning. My box just shows up, and the whole kitchen smells incredible.”</blockquote><div class="review-author"><div class="avatar" aria-hidden="true" style="background:#B58E77">MS</div><div><strong>Maya S.</strong><span>Designer, Brooklyn · Starter plan</span></div></div></article>
+        <article class="review reveal"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“We paused our subscription for a three-week trip. Came home to fresh coffee again. I love trying different origins, and each box feels like a small adventure. Kenya is my new favorite.”</blockquote><div class="review-author"><div class="avatar" aria-hidden="true" style="background:#625447">DC</div><div><strong>Daniel C.</strong><span>Coffee enthusiast, Portland · Coffee Lover</span></div></div></article>
+      </div>
+    </div></section>
+    <section id="faq" class="section" aria-labelledby="faq-title"><div class="container faq-grid">
+      <div class="faq-intro reveal"><p class="eyebrow">A few things to know</p><h2 class="section-title" id="faq-title">Good questions.<br><span class="serif">Straight answers.</span></h2><p class="subtitle">Your subscription should be as simple as a good cup of coffee. Here’s what you need to know.</p><a class="text-link" href="mailto:hello@roastcraft.example">Talk to our team</a></div>
+      <div class="faq-list reveal">
+        <details open><summary>What is specialty coffee?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>It’s coffee chosen for its traceable origins and distinctive flavor. We source 100% Arabica scoring 84 points or higher, taste every batch, and roast each origin to bring out its natural character.</p></details>
+        <details><summary>How often will my coffee arrive?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>One box each month. We roast fresh batches every week, so your coffee ships fresh. Your box contains one, two, or four 8.8 oz (250 g) bags, depending on your plan. Shipping is free throughout the contiguous United States.</p></details>
+        <details><summary>Can I order ground coffee?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Absolutely. Choose a grind for espresso, pour-over, Turkish coffee, or French press at checkout. Have a grinder at home? Select whole bean. Grinding is always included.</p></details>
+        <details><summary>How does annual billing work?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Pay for 12 months upfront and save 15%. We still send one box every month. Each plan shows the monthly equivalent and the total annual charge, so you know exactly what to expect.</p></details>
+        <details><summary>Can I pause my subscription?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Yes. Pausing moves your next shipment and keeps any prepaid boxes on your annual plan. You can also switch your coffee or grind before the next roast. Contact our team to make changes.</p></details>
+        <details><summary>What if my coffee isn’t the right match?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Tell us what you liked and what you’d change: more sweetness, more body, or less acidity. We’ll help fine-tune your grind, recipe, and next coffee choice.</p></details>
+      </div>
+    </div></section>
+    <section class="last-call" aria-labelledby="last-title"><div class="container last-call-inner"><div><h2 id="last-title">Your next morning <span class="serif">starts here.</span></h2><p>Find your coffee. We’ll take care of the rest.</p></div><a href="#quiz" class="btn btn-primary">Build your box</a></div></section>
+  </main>
+  <footer class="footer"><div class="container">
+    <div class="footer-main"><div class="footer-brand"><a href="#" class="logo" aria-label="RoastCraft home"><svg viewBox="0 0 32 40" aria-hidden="true"><ellipse cx="16" cy="20" rx="10" ry="15" transform="rotate(30 16 20)" fill="currentColor"/><path d="M23 7C9 17 25 23 9 33" fill="none" stroke-width="2"/></svg>RoastCraft<span class="brand-dot">.</span></a><p>Fresh coffee. A thoughtful ritual.<br>Made for your better days.</p></div>
+      <div><h3>Explore</h3><div class="footer-links"><a href="#how">How it works</a><a href="#beans">Our coffees</a><a href="#roasting">Our roasting</a></div></div>
+      <div><h3>Your subscription</h3><div class="footer-links"><a href="#pricing">Explore plans</a><a href="#quiz">Find your match</a><a href="#faq">FAQs</a></div></div>
+      <div><h3>Stay connected</h3><div class="footer-links"><a href="mailto:hello@roastcraft.example">hello@roastcraft.example</a><a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener noreferrer">Share on Facebook</a><a id="share-x" href="https://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer">Share on X</a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="copyright-year">2026</span> RoastCraft. Crafted with care, one bean at a time.</span><div class="footer-legal"><button type="button" data-legal="privacy">Privacy policy</button><button type="button" data-legal="terms">Subscription terms</button><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Photography: Unsplash</a></div></div>
+  </div></footer>
+  <!-- Form deliberately stays on the device. Replace the submit handler with your API to receive real orders. -->
+  <dialog id="order-dialog" aria-labelledby="order-title"><button class="close-dialog" type="button" aria-label="Close order form"><svg class="icon"><use href="#i-close"/></svg></button><div class="dialog-content">
+    <div id="order-form-view"><p class="dialog-eyebrow">Your coffee story starts here</p><h2 id="order-title">Let’s build your first box.</h2><p class="dialog-description">Tell us a little about yourself.<br>We’ll make the coffee fit your routine.</p>
+      <form id="order-form" novalidate>
+        <div class="form-field"><label for="order-name">Your name</label><input id="order-name" name="name" autocomplete="given-name" placeholder="First and last name" required minlength="2" maxlength="60" aria-describedby="name-error"><p class="field-error" id="name-error" hidden></p></div>
+        <div class="form-field"><label for="order-contact">Email or US phone number</label><input id="order-contact" name="contact" type="text" autocomplete="email" inputmode="text" placeholder="you@example.com or (555) 123-4567" required maxlength="100" aria-describedby="contact-hint contact-error"><p id="contact-hint" class="form-hint">An email or 10-digit US number. @Telegram also works.</p><p class="field-error" id="contact-error" hidden></p></div>
+        <div class="form-field"><label for="order-plan">Your plan</label><select id="order-plan" name="plan"><option value="start">Starter · 1 bag / month</option><option value="balance" selected>Balanced · 2 bags / month</option><option value="lover">Coffee Lover · 4 bags / month</option></select></div>
+        <div class="form-field"><label for="order-bean">Your first coffee</label><select id="order-bean" name="bean"><option value="brazil">Brazil · chocolate & nuts</option><option value="ethiopia">Ethiopia · floral & citrus</option><option value="kenya">Kenya · berries & fruit</option></select></div>
+        <div class="form-field"><label for="order-grind">Grind preference</label><select id="order-grind" name="grind"><option value="whole">Whole bean</option><option value="espresso">Espresso / moka pot</option><option value="filter">Pour-over / drip</option><option value="turka">Turkish coffee</option><option value="press">French press</option></select></div>
+        <div class="form-field"><label for="order-billing">Billing frequency</label><select id="order-billing" name="billing"><option value="monthly">Monthly</option><option value="annual">Annual · save 15%</option></select></div>
+        <div class="order-summary"><span id="order-summary-label">Balanced · billed monthly</span><strong id="order-summary-price">$29 / month</strong><span>Shipping and grinding included</span></div>
+        <button type="submit" id="submit-order" class="btn btn-primary form-submit">Start my subscription</button><p class="form-consent">By continuing, you agree to our <button type="button" data-legal="privacy">privacy policy</button>.</p><p class="form-demo">Demo checkout: your information stays in this tab.</p>
+      </form>
+    </div>
+    <div id="order-success" class="success" tabindex="-1" role="status" hidden><div class="success-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></div><h2>Thanks for your order!</h2><p id="success-message"></p><p>Your demo order is ready. No payment was taken and no information was sent.</p><button type="button" class="btn btn-dark close-success">Sounds good, thanks</button></div>
+  </div></dialog>
+  <dialog id="legal-dialog" aria-labelledby="legal-title"><button class="close-dialog" type="button" aria-label="Close information"><svg class="icon"><use href="#i-close"/></svg></button><div class="dialog-content"><p class="dialog-eyebrow">RoastCraft</p><h2 id="legal-title">Privacy policy</h2><div id="legal-copy" class="legal-copy"></div></div></dialog>
+  <noscript><p style="padding:20px;text-align:center;background:#F8F6F1">Enable JavaScript to find your coffee and use checkout. You can browse our coffees and monthly plans without it.</p></noscript>
+
+  <script>
+  (() => {
+    'use strict';
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+    const formatNumber = (value) => new Intl.NumberFormat('en-US', { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 }).format(value);
+    const money = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 }).format(value);
+    const plans = {
+      start: { name: 'Starter', price: 16 },
+      balance: { name: 'Balanced', price: 29 },
+      lover: { name: 'Coffee Lover', price: 54 }
+    };
+    const beans = {
+      brazil: { name: 'Brazil Cerrado', price: 16, tags: ['Chocolate', 'Hazelnut', 'Caramel'], text: 'Smooth, full-bodied coffee with chocolate sweetness and low acidity.' },
+      ethiopia: { name: 'Ethiopia Sidamo', price: 19, tags: ['Bergamot', 'Jasmine', 'Peach'], text: 'Clean floral aromas, citrus freshness, and a delicate, tea-like body.' },
+      kenya: { name: 'Kenya Kirinyaga', price: 22, tags: ['Blackcurrant', 'Cherry', 'Grapefruit'], text: 'Juicy berries, vibrant acidity, and a lingering sweet finish.' }
+    };
+    const methods = {
+      espresso: { name: 'espresso / moka pot', recipe: 'Try a 1:2 coffee-to-yield ratio for espresso. For a moka pot, use a slightly coarser grind.' },
+      filter: { name: 'pour-over / drip', recipe: 'Try 15 g of coffee to 8.5 fl oz of water at 198–203°F.' },
+      turka: { name: 'Turkish coffee', recipe: 'Try 10 g of coffee to 3.4 fl oz of water. Remove from heat just before it boils.' },
+      press: { name: 'French press', recipe: 'Try 17 g of coffee to 8.5 fl oz of water, steeped for 4 minutes.' }
+    };
+    // Share the current page when hosted, or the project when opened locally.
+    const shareUrl = /^https?:$/.test(window.location.protocol)
+      ? window.location.href.split('#')[0]
+      : 'https://github.com/inzhusalim/roastcraft';
+    $('#share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+    $('#share-x').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent('Fresh coffee. Your kind of routine.')}`;
+
+    let billing = 'monthly';
+    let selectedBean = 'brazil';
+    let previousFocus = null;
+    const quiz = { step: 0, method: null, flavor: null, recommendation: null };
+    const orderDialog = $('#order-dialog');
+    const legalDialog = $('#legal-dialog');
+
+    // Mobile navigation uses a disclosure button with a synced accessible state.
+    const menuButton = $('.menu-toggle');
+    function closeMenu() {
+      $('#mobile-menu').hidden = true;
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open menu');
+      $('use', menuButton).setAttribute('href', '#i-menu');
+    }
+    menuButton.addEventListener('click', () => {
+      const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+      $('#mobile-menu').hidden = expanded;
+      menuButton.setAttribute('aria-expanded', String(!expanded));
+      menuButton.setAttribute('aria-label', expanded ? 'Open menu' : 'Close menu');
+      $('use', menuButton).setAttribute('href', expanded ? '#i-menu' : '#i-close');
+    });
+    $$('#mobile-menu a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !$('#mobile-menu').hidden) { closeMenu(); menuButton.focus(); }
+    });
+    matchMedia('(min-width:1024px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+
+    // The annual amount is calculated to the cent, with the exact monthly equivalent.
+    // For example: 16 × 12 × 0.85 = $163.20 per year; $13.60 per month.
+    function monthlyPrice(plan, period = billing) {
+      return period === 'annual' ? plans[plan].price * 85 / 100 : plans[plan].price;
+    }
+    function updateOrderSummary() {
+      const plan = $('#order-plan').value;
+      const annual = $('#order-billing').value === 'annual';
+      $('#order-summary-label').textContent = `${plans[plan].name} · ${annual ? 'billed annually' : 'billed monthly'}`;
+      $('#order-summary-price').textContent = annual
+        ? `${money(Math.round(plans[plan].price * 12 * 85) / 100)} / year (${money(monthlyPrice(plan, 'annual'))} / mo)`
+        : `${money(plans[plan].price)} / month`;
+    }
+    function setBilling(period) {
+      if (!['monthly', 'annual'].includes(period)) throw new Error('Invalid billing period');
+      billing = period;
+      $$('[data-billing]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.billing === period)));
+      Object.keys(plans).forEach(key => {
+        $(`[data-price="${key}"]`).textContent = formatNumber(monthlyPrice(key));
+        $(`[data-total="${key}"]`).textContent = period === 'annual'
+          ? `${money(Math.round(plans[key].price * 12 * 85) / 100)} per year · save ${money(Math.round(plans[key].price * 12 * 15) / 100)}`
+          : 'Billed monthly';
+      });
+      $('#order-billing').value = period;
+      updateOrderSummary();
+    }
+    $$('[data-billing]').forEach(button => button.addEventListener('click', () => setBilling(button.dataset.billing)));
+    $('#order-plan').addEventListener('change', updateOrderSummary);
+    $('#order-billing').addEventListener('change', event => setBilling(event.target.value));
+
+    // Two answers form the recommendation, including the brew-specific grind and recipe.
+    function getRecommendation(method, flavor) {
+      if (!Object.hasOwn(methods, method) || !['chocolate', 'floral', 'berry', 'surprise'].includes(flavor)) throw new Error('Select a brewing method and flavor profile');
+      if (flavor === 'chocolate') return 'brazil';
+      if (flavor === 'floral') return 'ethiopia';
+      if (flavor === 'berry') return 'kenya';
+      return ['espresso', 'turka'].includes(method) ? 'brazil' : 'ethiopia';
+    }
+    function paintResult() {
+      const key = getRecommendation(quiz.method, quiz.flavor);
+      quiz.recommendation = key;
+      const bean = beans[key];
+      $('#result-name').textContent = bean.name;
+      $('#result-cost').textContent = money(bean.price);
+      $('#result-tags').replaceChildren(...bean.tags.map(tag => {
+        const span = document.createElement('span'); span.textContent = tag; return span;
+      }));
+      $('#result-description').textContent = `${bean.text} We’ll prepare your grind for ${methods[quiz.method].name}. ${methods[quiz.method].recipe}`;
+    }
+    function renderQuiz(moveFocus = false) {
+      const labels = ['01 / 03 · Your brewing method', '02 / 03 · Your flavor profile', '03 / 03 · Your coffee match'];
+      $('#quiz-step-label').textContent = labels[quiz.step];
+      $$('.progress-track span').forEach((bar, index) => bar.classList.toggle('active', index <= quiz.step));
+      $('#quiz-method').hidden = quiz.step !== 0;
+      $('#quiz-flavor').hidden = quiz.step !== 1;
+      $('#quiz-result').hidden = quiz.step !== 2;
+      $('#quiz-back').hidden = quiz.step === 0;
+      $('#quiz-next').hidden = quiz.step === 2;
+      $('#quiz-restart').hidden = quiz.step !== 2;
+      $('#quiz-next').textContent = quiz.step === 0 ? 'Continue' : 'Find my coffee';
+      $('#quiz-next').disabled = quiz.step === 0 ? !quiz.method : !quiz.flavor;
+      if (quiz.step === 2) paintResult();
+      if (moveFocus) {
+        if (quiz.step === 2) $('#quiz-result').focus({ preventScroll: true });
+        else $(`input[name="${quiz.step === 0 ? 'method' : 'flavor'}"]:checked, input[name="${quiz.step === 0 ? 'method' : 'flavor'}"]`).focus({ preventScroll: true });
+      }
+    }
+    $$('input[name="method"], input[name="flavor"]').forEach(input => input.addEventListener('change', () => {
+      quiz[input.name] = input.value;
+      renderQuiz();
+    }));
+    $('#quiz-next').addEventListener('click', () => {
+      if ((quiz.step === 0 && !quiz.method) || (quiz.step === 1 && !quiz.flavor)) return;
+      quiz.step = Math.min(2, quiz.step + 1); renderQuiz(true);
+    });
+    $('#quiz-back').addEventListener('click', () => { quiz.step = Math.max(0, quiz.step - 1); renderQuiz(true); });
+    $('#quiz-restart').addEventListener('click', () => {
+      Object.assign(quiz, { step: 0, method: null, flavor: null, recommendation: null });
+      $$('input[name="method"], input[name="flavor"]').forEach(input => { input.checked = false; });
+      renderQuiz(true);
+    });
+
+    // Native <dialog> traps keyboard focus and restores the triggering control on close.
+    function syncModalLock() {
+      document.body.classList.toggle('modal-open', orderDialog.open || legalDialog.open);
+    }
+    function openOrder(plan = 'balance', bean = selectedBean) {
+      if (!Object.hasOwn(plans, plan) || !Object.hasOwn(beans, bean)) throw new Error('Unknown plan or coffee');
+      selectedBean = bean;
+      previousFocus = document.activeElement;
+      $('#order-plan').value = plan;
+      $('#order-bean').value = bean;
+      $('#order-grind').value = quiz.method || 'whole';
+      $('#order-billing').value = billing;
+      $('#order-form-view').hidden = false;
+      $('#order-success').hidden = true;
+      orderDialog.setAttribute('aria-labelledby', 'order-title');
+      $('#submit-order').disabled = false;
+      $('#submit-order').textContent = 'Start my subscription';
+      ['name', 'contact'].forEach(key => clearError(key));
+      updateOrderSummary();
+      if (!orderDialog.open) orderDialog.showModal();
+      syncModalLock();
+      $('#order-name').focus({ preventScroll: true });
+    }
+    $$('[data-plan]').forEach(button => button.addEventListener('click', () => openOrder(button.dataset.plan)));
+    $$('[data-bean]').forEach(button => button.addEventListener('click', () => openOrder('start', button.dataset.bean)));
+    $('#result-order').addEventListener('click', () => openOrder('start', quiz.recommendation));
+    $$('.close-dialog, .close-success', orderDialog).forEach(button => button.addEventListener('click', () => orderDialog.close()));
+    $('.close-dialog', legalDialog).addEventListener('click', () => legalDialog.close());
+    [orderDialog, legalDialog].forEach(dialog => {
+      dialog.addEventListener('click', event => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+      });
+      dialog.addEventListener('close', () => {
+        syncModalLock();
+        if (dialog === orderDialog && previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
+      });
+    });
+
+    function clearError(key) {
+      $(`#order-${key}`).removeAttribute('aria-invalid');
+      $(`#${key}-error`).hidden = true;
+      $(`#${key}-error`).textContent = '';
+    }
+    function validateField(key, show = true) {
+      const input = $(`#order-${key}`);
+      const value = input.value.trim();
+      let message = '';
+      if (key === 'name') {
+        const letters = value.match(/\p{L}/gu) || [];
+        if (letters.length < 2 || value.length > 60 || !/^[\p{L}\p{M}\s’'\-]+$/u.test(value)) message = 'Please enter your name using at least two letters, without numbers.';
+      } else {
+        const digits = value.replace(/\D/g, '');
+        const phone = /^\+?[\d\s().\-]+$/.test(value) && ((digits.length === 10 && !value.startsWith('+')) || (digits.length === 11 && digits.startsWith('1')));
+        const email = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+        const telegram = /^@[A-Za-z][A-Za-z0-9_]{4,31}$/.test(value);
+        if (!email && !phone && !telegram) message = 'Enter an email, a 10-digit US phone number, or @Telegram username.';
+      }
+      if (show) {
+        if (message) {
+          input.setAttribute('aria-invalid', 'true');
+          $(`#${key}-error`).textContent = message;
+          $(`#${key}-error`).hidden = false;
+        } else clearError(key);
+      }
+      return !message;
+    }
+    ['name', 'contact'].forEach(key => {
+      $(`#order-${key}`).addEventListener('blur', () => { if ($(`#order-${key}`).value.trim()) validateField(key); });
+      $(`#order-${key}`).addEventListener('input', () => { if ($(`#order-${key}`).hasAttribute('aria-invalid')) validateField(key); });
+    });
+    $('#order-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const nameValid = validateField('name');
+      const contactValid = validateField('contact');
+      if (!nameValid || !contactValid) { $(`#order-${!nameValid ? 'name' : 'contact'}`).focus(); return; }
+      // Checkout validates locally; no request or payment is submitted.
+      // Connect your endpoint here and show success only after its successful response.
+      const firstName = $('#order-name').value.trim();
+      const plan = plans[$('#order-plan').value].name;
+      const bean = beans[$('#order-bean').value].name;
+      $('#success-message').textContent = `${firstName}, you chose: “${plan}” and ${bean}. Here’s to a better morning.`;
+      $('#order-form-view').hidden = true;
+      $('#order-success').hidden = false;
+      $('#order-success h2').id = 'success-title';
+      orderDialog.setAttribute('aria-labelledby', 'success-title');
+      $('#order-success').focus({ preventScroll: true });
+    });
+
+    const legalText = {
+      privacy: { title: 'Privacy policy', paragraphs: [
+        'This is a demonstration of RoastCraft. Checkout processes information only in your browser tab. No contact details are sent, stored, or shared.',
+        'This page loads photography from Unsplash and fonts from Google Fonts. Those services receive the technical information needed to load their resources. Checkout does not send information to them.',
+        'Facebook and X links open their sharing pages. You choose whether and where to share. Before commercial launch, the business must provide its identity, contact information, and applicable privacy policy.'
+      ] },
+      terms: { title: 'Subscription terms', paragraphs: [
+        'Starter includes one bag, Balanced includes two, and Coffee Lover includes four 8.8 oz (250 g) bags per month. All featured origins, grinding, and shipping within the contiguous US are included. Catalog prices apply to individual bags outside a subscription.',
+        'Monthly plans are $16, $29, and $54. Annual plans are $163.20, $295.80, and $550.80 for 12 monthly boxes, including a 15% discount. Pausing moves shipments while preserving prepaid boxes. Prices are in US dollars. Applicable sales tax, if any, would be shown before payment.',
+        'This is a demonstration offer. Checkout does not create a paid subscription or process a payment. Before launch, the business must finalize delivery times, cancellation and refund terms, sales-tax handling, and merchant information.'
+      ] }
+    };
+    $$('[data-legal]').forEach(button => button.addEventListener('click', () => {
+      const content = legalText[button.dataset.legal];
+      $('#legal-title').textContent = content.title;
+      $('#legal-copy').replaceChildren(...content.paragraphs.map(text => { const paragraph = document.createElement('p'); paragraph.textContent = text; return paragraph; }));
+      legalDialog.showModal(); syncModalLock();
+    }));
+
+    // Reveals enhance the page without hiding content when JavaScript is unavailable.
+    if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+      document.documentElement.classList.add('js-reveal');
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }
+      }), { threshold: .08 });
+      $$('.reveal').forEach(element => observer.observe(element));
+    }
+
+  })();
+  </script>
+
+</body>
+</html>
